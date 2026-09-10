@@ -367,6 +367,67 @@
       font-style: italic;
     }
 
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-5);
+    }
+    .quote-card {
+      margin: 0;
+      border: 1px solid var(--grey-200);
+      border-left: 3px solid var(--kle-red);
+      border-radius: var(--radius-md);
+      background: var(--grey-50);
+      padding: var(--space-5) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .quote-card__text {
+      font-size: var(--text-md);
+      color: var(--grey-600);
+      line-height: 1.65;
+      font-style: italic;
+    }
+    .quote-card__attr {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .quote-card__name {
+      font-size: var(--text-sm);
+      font-weight: 800;
+      color: var(--grey-800);
+      letter-spacing: 0.01em;
+    }
+    .quote-card__role {
+      font-size: var(--text-sm);
+      color: var(--grey-400);
+    }
+
+    .recognize-list {
+      list-style: none;
+      margin-top: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      max-width: var(--prose);
+    }
+    .recognize-list li {
+      font-size: var(--text-md);
+      color: var(--grey-600);
+      line-height: 1.55;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--grey-200);
+      border-radius: var(--radius-sm);
+      background: var(--grey-50);
+    }
+    .recognize-list li strong {
+      color: var(--grey-800);
+      font-weight: 700;
+    }
+
     .template-block + .template-block { margin-top: var(--space-8); }
     .template-card {
       max-width: var(--prose);
@@ -652,6 +713,7 @@
         align-items: flex-start;
         justify-content: flex-start;
       }
+      .quote-grid { grid-template-columns: 1fr; }
       .footer { padding: var(--space-5) var(--space-5) calc(var(--space-5) + env(safe-area-inset-bottom)); }
     }
   </style>
@@ -682,8 +744,8 @@
       <aside class="amit-note" aria-label="A note from Amit">
         <div class="amit-note__label">A note from Amit</div>
         <p>When you introduce someone to me, you're lending me your credibility. I don't take that lightly.</p>
-        <p>I reach out inside a week. One conversation, peer to peer, no pitch. If I think we can help, I say so. If I don't, I tell them who they should be talking to instead.</p>
-        <p>Nobody gets chased. Worst case, a CEO you respect spends an hour getting a clearer read on their business and thanks you for it.</p>
+        <p>I reach out timely, inside a week. One conversation, peer to peer, no pitch. If I think we can help, I say so. If I don't, I tell them who they should be talking to instead.</p>
+        <p>Nobody gets chased. Worst case, a CEO you respect spends an hour getting a clearer read on their business and thanks you for it. Out of respect for you, we keep you in the loop.</p>
         <p class="amit-note__sign"><img src="./assets/amit-signature.png?v=5" alt="Amit" width="150" height="30" /></p>
       </aside>
     </section>
@@ -737,10 +799,10 @@
       <h2 class="section__title">What to listen for</h2>
       <p class="section__body" style="margin-bottom: var(--space-4);">You don't need the exact wording. If a CEO you're talking to sounds like any of the below, there's a good chance KLE is worth an introduction.</p>
       <ol class="listen-list">
-        <li><span class="listen-item"><strong>The CEO is still doing work only a CEO can do, plus work anyone else should be doing.</strong> <span class="listen-quote">"I know I shouldn't be in the middle of this, but if I'm not, it doesn't get done."</span> Or: <span class="listen-quote">"I don't know when I last worked on the actual strategy."</span></span></li>
+        <li><span class="listen-item"><strong>The CEO is still doing work only a CEO can do, plus work anyone else could and should be doing.</strong> <span class="listen-quote">"I know I shouldn't be in the middle of this, but if I'm not, it doesn't get done."</span> Or: <span class="listen-quote">"I don't know when I last worked on the actual strategy."</span></span></li>
         <li><span class="listen-item"><strong>The leadership team has gone quiet.</strong> Everyone nods in the exec meeting. Nobody argues. Then the CEO hears about the pushback later, second-hand. If they describe their leadership meetings as peaceful, that's worth paying attention to.</span></li>
         <li><span class="listen-item"><strong>Managers are owning their departments but keep bringing decisions back up.</strong> <span class="listen-quote">"My VPs are good, but they keep coming to me for validation on things they should just be deciding."</span></span></li>
-        <li><span class="listen-item"><strong>They're in the middle of something structurally difficult, or about to walk into one.</strong> <span class="listen-quote">"We just closed the deal, and now I have two ways of selling and two service models under one roof."</span> Or: <span class="listen-quote">"We're going to double in the next two years and I don't know if my team is ready."</span></span></li>
+        <li><span class="listen-item"><strong>They're in the middle of a structurally difficult situation, or about to walk into one.</strong> <span class="listen-quote">"We just closed the deal, and now I have two ways of selling and two service models under one roof."</span> Or: <span class="listen-quote">"We're going to double in the next two years and I don't know if my team is ready."</span></span></li>
         <li><span class="listen-item"><strong>They've tried the standard playbook and it didn't land.</strong> <span class="listen-quote">"I had a coach for a year, nice guy, nothing really changed."</span> Or: <span class="listen-quote">"We hired a big consultancy and ended up with a beautiful deck we haven't opened since."</span></span></li>
         <li><span class="listen-item"><strong>The CEO is carrying more than they're showing.</strong> <span class="listen-quote">"I don't have anyone I can actually talk to about this. Not my board, not my team, not my family."</span></span></li>
       </ol>
@@ -748,33 +810,54 @@
 
     <section class="section" id="about">
       <h2 class="section__title">What is Kothari Leadership?</h2>
-      <p class="section__body">Kothari Leadership is a growth consultancy for CEOs. We work inside a company, alongside the leader and their executive team, to unlock the growth being held back by whatever isn't working at the top. Most CEOs describe it as the first time someone has been able to see their business clearly from the outside without also being able to hide from what's actually happening on the inside.</p>
+      <p class="section__body">Kothari Leadership is a growth consultancy for CEOs and their leaders. When you know a leader who is capable but stuck and feeling alone, held back by something at the top of the company that no one has quite been able to name, that is exactly who we help.</p>
+      <p class="section__body">We work inside the business, alongside the CEO and the executive team, and we stay there until the thing slowing growth actually moves. Companies don't grow, people do, so we start with the people at the top and let the results follow.</p>
       <div class="note-box">
-        <p class="italic">The CEOs we work with have usually tried the obvious options first: a coach who's never actually run a company, a consultant whose deliverable turned out to be a deck rather than a change, or a trusted advisor whose loyalty makes them tell you what you want to hear.</p>
-        <p>What they find in KLE is a partner who has actually done the job, who is inside their week for as long as it takes, and who will tell them the things their own team has quietly decided aren't safe to say.</p>
+        <p>The CEOs worth sending our way have usually tried the obvious options first. A coach who has never run a company. A consultant whose big deliverable turned out to be expensive but something no one could implement sustainably. A trusted advisor whose loyalty makes it hard to say the hard thing.</p>
+        <p>What they find in KLE is a partner who has actually sat in the chair, who is working the issue for as long as it takes, and who will say the things their own team has quietly decided aren't safe to say.</p>
       </div>
 
-      <h3 class="section__sub">Why KLE is different</h3>
+      <h3 class="section__sub">Why partners refer their CEOs to us</h3>
+      <p class="section__body">When you make an introduction, your name is on it. Here is what stands behind that.</p>
       <ol class="diff-list">
         <li>
           <div>
             <span class="diff-title">We work inside the business, not from a distance. </span>
-            <span class="diff-body">KLE's coaches embed with the leadership team. They're in the meetings, in the difficult conversations, and present while the team learns to operate at the next level. It's the reason our clients say we get more done in 90 days than a traditional consulting engagement gets done in six months.</span>
+            <span class="diff-body">KLE's coaches embed with the leadership team. We are in the meetings, in the difficult conversations, and present while the team learns to operate at the next level. It is why our clients say we get more done in 90 days than a traditional consulting engagement gets done in six months.</span>
           </div>
         </li>
         <li>
           <div>
             <span class="diff-title">EQ+Execution&trade;, in the same engagement. </span>
-            <span class="diff-body">Most performance problems that show up in the boardroom are actually people problems in disguise. An executive team that has quietly stopped telling the CEO what they really think. A manager who's technically owning their department but constantly checking upward for validation. A leadership layer whose confidence hasn't caught up with the size of the business. We work on the people side and the execution side at the same time, which is what makes either side actually shift.</span>
+            <span class="diff-body">Most performance problems that show up in the boardroom are people problems in disguise. An executive team that has quietly stopped telling the CEO what they really think. A manager who owns the department on paper but keeps checking upward for validation. A leadership layer whose confidence has not caught up to the size of the business. We work the people side and the execution side at the same time, because that is the only way either side actually shifts.</span>
           </div>
         </li>
         <li>
           <div>
-            <span class="diff-title">Straight talk. On both sides. </span>
-            <span class="diff-body">KLE doesn't soft-pedal. If we think something isn't working, we say so. If we think a client isn't ready, we say that too. The CEOs who've worked with us will consistently tell you it was the honesty they couldn't get anywhere else that made the engagement worth the money.</span>
+            <span class="diff-title">Straight talk, on both sides. </span>
+            <span class="diff-body">We do not soft-pedal. If something is not working, we say so. If a CEO is not ready for us, we say that too, to them and to you. The leaders who have worked with us will tell you it was the honesty they could not get anywhere else that made the engagement worth it. That same candor is our promise to you: we treat the relationship you are trusting us with as carefully as you do.</span>
           </div>
         </li>
       </ol>
+
+      <h3 class="section__sub" id="voices">What clients say</h3>
+      <p class="section__body">Two voices from leaders who have worked with KLE.</p>
+      <div class="quote-grid">
+        <blockquote class="quote-card">
+          <p class="quote-card__text">Your team has been amazing. I have seen a dramatic turnaround with myself and my leadership team in a short period of time. The most impressive and heartwarming feedback has been several of my managers genuinely thanking me for investing in KLE as it has re-inspired them in their development for ITC, but more importantly for their own personal growth as well.</p>
+          <footer class="quote-card__attr">
+            <span class="quote-card__name">David Harlow</span>
+            <span class="quote-card__role">President &amp; CEO, ITC-Diligence, Inc.</span>
+          </footer>
+        </blockquote>
+        <blockquote class="quote-card">
+          <p class="quote-card__text">KLE has helped us build the leadership team and infrastructure which will enable us to double our size in the next three years and make our firm the risk and insurance broker of choice for our clients and our employees. Without Amit, we were at risk of outgrowing our organizational maturity.</p>
+          <footer class="quote-card__attr">
+            <span class="quote-card__name">Woodruff-Sawyer &amp; Co.</span>
+            <span class="quote-card__role">Client leadership team</span>
+          </footer>
+        </blockquote>
+      </div>
 
       <h3 class="section__sub" id="fit">Who we're a great fit for</h3>
       <div class="fit-box">
@@ -784,7 +867,7 @@
         </div>
         <div class="fit-box__item">
           <span class="fit-box__icon" aria-hidden="true">&#10003;</span>
-          <span>Leaders in the middle of something structurally hard: a scaling push, an acquisition, an integration, a leadership team change, a succession plan, or about to walk into it.</span>
+          <span>Leaders in the middle of a structurally difficult situation: a scaling push, an acquisition, an integration, a leadership team change, a succession plan, or about to walk into one.</span>
         </div>
         <div class="fit-box__item">
           <span class="fit-box__icon" aria-hidden="true">&#10003;</span>
@@ -893,7 +976,14 @@ https://kotharileadership.com</textarea>
 
     <section class="section" id="recognition">
       <h2 class="section__title">Recognition for your introductions</h2>
-      <p class="section__body">When an introduction turns into a client engagement, we'll be in touch to talk through how you'd like that recognized. Some of our partners prefer a fee, some prefer a charitable contribution in their name, some prefer a leadership diagnostic session with Amit, and some prefer to just know they helped a fellow CEO. All of it is welcome.</p>
+      <p class="section__body">When an introduction turns into a client engagement, a referral fee is available and we will put that in writing. We'll then talk through how you'd like that recognized:</p>
+      <ul class="recognize-list">
+        <li><strong>A referral fee</strong> — confirmed in writing once the engagement is signed.</li>
+        <li><strong>A charitable contribution</strong> in your name.</li>
+        <li><strong>A leadership diagnostic session</strong> with Amit.</li>
+        <li><strong>Simply knowing you helped a fellow CEO.</strong></li>
+      </ul>
+      <p class="section__body" style="margin-top: var(--space-4);">All of it is welcome.</p>
       <div class="resource-grid">
         <article class="resource-card">
           <span class="resource-card__badge">Free for partners</span>
@@ -919,7 +1009,7 @@ https://kotharileadership.com</textarea>
             What happens after I introduce someone?
             <svg class="chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
           </button>
-          <div class="accordion-content" id="faq-2-panel">Amit reaches out to schedule a peer-level conversation, usually within a week. It's not a sales call; the goal is for the CEO to leave with a clearer picture of their own situation, and to work out from there whether a KLE engagement makes sense. Either way, KLE takes it from there. You don't need to do anything further unless you want to.</div>
+          <div class="accordion-content" id="faq-2-panel">Amit reaches out timely, inside a week, to schedule a peer-level conversation. It's not a sales call; the goal is for the CEO to leave with a clearer picture of their own situation, and to work out from there whether a KLE engagement makes sense. Either way, KLE takes it from there, and we keep you in the loop. You don't need to do anything further unless you want to.</div>
         </div>
         <div class="accordion-item" id="faq-3">
           <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-3-panel" onclick="toggleAcc('faq-3')">
