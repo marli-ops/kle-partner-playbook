@@ -121,10 +121,11 @@
       background: #000;
       aspect-ratio: 16 / 9;
     }
-    .hero__video video {
+    .hero__video iframe {
       display: block;
       width: 100%;
       height: 100%;
+      border: 0;
     }
 
     .section {
@@ -688,15 +689,13 @@
       <p class="hero__sub">Who we're a fit for, what to listen for in a conversation, and how to make the intro when the moment shows up.</p>
       <p class="hero__line">One conversation. We take it from there.</p>
       <div class="hero__video">
-        <video
-          controls
-          playsinline
-          preload="metadata"
+        <iframe
+          src="https://www.youtube.com/embed/JvcHWn6eHJQ"
           title="Kothari Leadership partner referral overview"
-        >
-          <source src="./assets/kle-referral-video.mp4?v=2" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
       </div>
     </section>
 
